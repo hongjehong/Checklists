@@ -10,41 +10,33 @@ import UIKit
 
 class ChecklistViewController: UITableViewController {
     
-    var items: [ChecklistItem]
-    required init?(coder aDecoder: NSCoder) {
-        items = [ChecklistItem]()
-        
-        let row0item = ChecklistItem()
-        row0item.text = "Walk the dog"
-        row0item.checked = false
-        items.append(row0item)
-        
-        let row1item = ChecklistItem()
-        row1item.text = "Brush my teeth"
-        row1item.checked = false
-        items.append(row1item)
-        
-        let row2item = ChecklistItem()
-        row2item.text = "Learn iOS development"
-        row2item.checked = false
-        items.append(row2item)
-        
-        let row3item = ChecklistItem()
-        row3item.text = "Soccer practice"
-        row3item.checked = false
-        items.append(row3item)
-        
-        let row4item = ChecklistItem()
-        row4item.text = "Eat ice cream"
-        row4item.checked = false
-        items.append(row4item)
-        
-        super.init(coder: aDecoder)
-    }
+    var items = [ChecklistItem]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        let item1 = ChecklistItem()
+        item1.text = "Walk the dog"
+        items.append(item1)
+        
+        let item2 = ChecklistItem()
+        item2.text = "Brush my teeth"
+        item2.checked = true
+        items.append(item2)
+        
+        let item3 = ChecklistItem()
+        item3.text = "Learn iOS development"
+        item3.checked = true
+        items.append(item3)
+        
+        let item4 = ChecklistItem()
+        item4.text = "Soccer practice"
+        items.append(item4)
+        
+        let item5 = ChecklistItem()
+        item5.text = "Eat ice cream"
+        items.append(item5)
     }
     
     //
@@ -63,6 +55,12 @@ class ChecklistViewController: UITableViewController {
         let label = cell.viewWithTag(1000) as! UILabel
         label.text = item.text
     }
+    
+    // MARK:- Table View Data Source
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return items.count
+    }
+    
     @IBAction func addItem(){
         let newRowIndex = items.count
         
