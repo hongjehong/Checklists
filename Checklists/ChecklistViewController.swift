@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChecklistViewController: UITableViewController {
+class ChecklistViewController: UITableViewController, AddItemViewControllerDelegate {
     
     var items = [ChecklistItem]()
 
@@ -61,6 +61,7 @@ class ChecklistViewController: UITableViewController {
         return items.count
     }
     
+    /*
     @IBAction func addItem(){
         let newRowIndex = items.count
         
@@ -72,6 +73,18 @@ class ChecklistViewController: UITableViewController {
         let indexPath = IndexPath(row: newRowIndex, section: 0)
         let indexPaths = [indexPath]
         tableView.insertRows(at: indexPaths, with: .automatic)
+    }
+ */
+    
+    func addItemViewController(_ controller: AddItemViewController, didFinishAdding item: ChecklistItem) {
+        let newRowIndex = items.count
+        items.append(item)
+        
+        let indexPath = IndexPath(row: newRowIndex, section: 0)
+        let indexPaths = [indexPath]
+        tableView.insertRows(at: indexPaths, with: .automatic)
+        
+        navigationController?.popViewController(animated: true)
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -102,7 +115,18 @@ class ChecklistViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    // Mark:- Add Item ViewController Delegates
+    func addItemViewControllerDidCancel(_ controller: AddItemViewController) {
+        navigationController?.popViewController(animated: true)
+    }
     
+    // Mark: -Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddItem" {
+            let controller = segue.destination as! AddItemViewController
+            controller.delegate = self
+        }
+    }
 
     //
     
