@@ -41,31 +41,31 @@
                                     <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8hi-qR-WE9">
-                                            <rect key="frame" x="27" y="5" width="305" height="34"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8hi-qR-WE9">
+                                            <rect key="frame" x="30" y="5" width="302" height="33.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="√" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FdP-Mh-8Wl">
-                                            <rect key="frame" x="0.0" y="5" width="19" height="34"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="√" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FdP-Mh-8Wl">
+                                            <rect key="frame" x="10" y="5" width="12.5" height="33.5"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="8hi-qR-WE9" firstAttribute="top" secondItem="RJ6-4e-SAc" secondAttribute="top" constant="5" id="5mw-l5-HZc"/>
+                                        <constraint firstItem="FdP-Mh-8Wl" firstAttribute="top" secondItem="RJ6-4e-SAc" secondAttribute="top" constant="5" id="94N-8K-tIe"/>
                                         <constraint firstItem="8hi-qR-WE9" firstAttribute="leading" secondItem="FdP-Mh-8Wl" secondAttribute="leading" constant="20" id="D6k-oq-dSc"/>
-                                        <constraint firstAttribute="trailing" secondItem="8hi-qR-WE9" secondAttribute="trailing" constant="10" id="QNt-uJ-m4h"/>
-                                        <constraint firstItem="FdP-Mh-8Wl" firstAttribute="top" secondItem="RJ6-4e-SAc" secondAttribute="top" constant="5" id="bXs-4y-FoA"/>
-                                        <constraint firstAttribute="bottom" secondItem="FdP-Mh-8Wl" secondAttribute="bottom" constant="5" id="fZi-yA-fiN"/>
-                                        <constraint firstAttribute="bottom" secondItem="8hi-qR-WE9" secondAttribute="bottom" constant="5" id="pm3-LJ-hSD"/>
-                                        <constraint firstItem="FdP-Mh-8Wl" firstAttribute="leading" secondItem="RJ6-4e-SAc" secondAttribute="leading" id="vtk-yM-KMS"/>
+                                        <constraint firstAttribute="trailing" secondItem="8hi-qR-WE9" secondAttribute="trailing" constant="10" id="MjI-bz-fCx"/>
+                                        <constraint firstItem="FdP-Mh-8Wl" firstAttribute="leading" secondItem="RJ6-4e-SAc" secondAttribute="leading" constant="10" id="W7n-gx-RaG"/>
+                                        <constraint firstItem="8hi-qR-WE9" firstAttribute="top" secondItem="RJ6-4e-SAc" secondAttribute="top" constant="5" id="kTI-x0-myV"/>
+                                        <constraint firstAttribute="bottom" secondItem="FdP-Mh-8Wl" secondAttribute="bottom" constant="5" id="p3g-El-dk9"/>
+                                        <constraint firstAttribute="bottom" secondItem="8hi-qR-WE9" secondAttribute="bottom" constant="5" id="zUv-7X-AoL"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="vNg-W3-bWv" kind="show" identifier="EditItem" id="lJh-qX-FqL"/>
+                                    <segue destination="vNg-W3-bWv" kind="show" identifier="EditItem" trigger="accessoryAction" id="Pac-OU-Yyq"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -178,6 +178,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="lJh-qX-FqL"/>
+        <segue reference="Pac-OU-Yyq"/>
     </inferredMetricsTieBreakers>
 </document>
