@@ -73,10 +73,10 @@
             </objects>
             <point key="canvasLocation" x="1705.7971014492755" y="110.49107142857143"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Add Item View Controller-->
         <scene sceneID="Bck-1s-0mb">
             <objects>
-                <tableViewController id="vNg-W3-bWv" sceneMemberID="viewController">
+                <tableViewController id="vNg-W3-bWv" customClass="AddItemViewController" customModule="Checklists" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ARk-O0-lYQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -86,8 +86,16 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <items>
                                 <navigationItem title="Add Item" id="zOG-si-WMc">
-                                    <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="h8Y-ub-FAe"/>
-                                    <barButtonItem key="rightBarButtonItem" systemItem="done" id="B5x-aH-0c7"/>
+                                    <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="h8Y-ub-FAe">
+                                        <connections>
+                                            <action selector="cancel" destination="vNg-W3-bWv" id="peJ-Wa-tZr"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem key="rightBarButtonItem" systemItem="done" id="B5x-aH-0c7">
+                                        <connections>
+                                            <action selector="done" destination="vNg-W3-bWv" id="pyb-O2-wCX"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </navigationItem>
                             </items>
                         </navigationBar>
