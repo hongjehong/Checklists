@@ -10,35 +10,30 @@ import UIKit
 
 class AddItemViewController: UITableViewController {
 
+    @IBOutlet weak var textField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        textField.becomeFirstResponder()
     }
 
-    // MARK: - Table view data source
-
-    /*
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
-    */
     // Mark:- Actions
     @IBAction func cancel() {
+        print("Contents of the text field: \(textField.text!)")
         navigationController?.popViewController(animated: true)
     }
     @IBAction func done() {
+        print("Contents of the text field: \(textField.text!)")
         navigationController?.popViewController(animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView,
+                            willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        return nil
     }
     
 
