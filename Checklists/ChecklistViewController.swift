@@ -10,8 +10,8 @@ import UIKit
 
 class ChecklistViewController: UITableViewController {
     
+    /*
     var items: [ChecklistItem]
-    
     required init?(coder aDecoder: NSCoder) {
         items = [ChecklistItem]()
         
@@ -42,17 +42,29 @@ class ChecklistViewController: UITableViewController {
         
         super.init(coder: aDecoder)
     }
+ */
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-    
-    override func tableView(_ tableView: UITableView,
-                            numberOfRowsInSection section: Int) -> Int {
-        return 100
+    /*
+    //
+    /* For Checkmark */
+    func configureCheckmark(for cell: UITableViewCell,
+                            with item: ChecklistItem) {
+        if item.checked {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+        }
     }
-    
+    /* Printing Label.text from item */
+    func configureText(for cell: UITableViewCell,
+                       with item: ChecklistItem) {
+        let label = cell.viewWithTag(1000) as! UILabel
+        label.text = item.text
+    }
     override func tableView(_ tableView: UITableView,
                             cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(
@@ -65,7 +77,23 @@ class ChecklistViewController: UITableViewController {
         
         return cell
     }
-    /*
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) {
+            let item = items[indexPath.row]
+            item.toggleChecked()
+            configureCheckmark(for: cell, with: item)
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    //
+ */
+    
+    
+     //
+    override func tableView(_ tableView: UITableView,
+                            numberOfRowsInSection section: Int) -> Int {
+        return 100
+    }
     override func tableView(_ tableView: UITableView,
                             cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -91,7 +119,6 @@ class ChecklistViewController: UITableViewController {
         }
         return cell
     }
- */
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if let cell = tableView.cellForRow(at: indexPath) {
@@ -104,7 +131,7 @@ class ChecklistViewController: UITableViewController {
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
-
+     //
 
 }
 
