@@ -92,7 +92,7 @@
                                             <action selector="cancel" destination="vNg-W3-bWv" id="peJ-Wa-tZr"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem key="rightBarButtonItem" systemItem="done" id="B5x-aH-0c7">
+                                    <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="B5x-aH-0c7">
                                         <connections>
                                             <action selector="done" destination="vNg-W3-bWv" id="pyb-O2-wCX"/>
                                         </connections>
@@ -110,11 +110,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name of the Item" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qiL-sj-is3">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name of the Item" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qiL-sj-is3">
                                                     <rect key="frame" x="10" y="5" width="394" height="33.5"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                    <connections>
+                                                        <action selector="done" destination="vNg-W3-bWv" eventType="editingDidEndOnExit" id="p2g-wf-CJM"/>
+                                                        <outlet property="delegate" destination="vNg-W3-bWv" id="IPW-lx-KRg"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -134,6 +138,7 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="doneBarButton" destination="B5x-aH-0c7" id="Sln-LC-kDn"/>
                         <outlet property="textField" destination="qiL-sj-is3" id="OlH-7g-0Bu"/>
                     </connections>
                 </tableViewController>

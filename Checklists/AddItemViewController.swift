@@ -8,9 +8,10 @@
 
 import UIKit
 
-class AddItemViewController: UITableViewController {
+class AddItemViewController: UITableViewController, UITextFieldDelegate {
 
     @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var doneBarButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,21 @@ class AddItemViewController: UITableViewController {
     override func tableView(_ tableView: UITableView,
                             willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         return nil
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        let oldText = textField.text!
+        let stringRange = Range(range, in:oldText)!
+        let newText = oldText.replacingCharacters(in: stringRange, with: string)
+        doneBarButton.isEnabled = !newText.isEmpty
+        return true
+    }
+    
+    /* Clear Button */
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        doneBarButton.isEnabled = false
+        return true
     }
     
 
