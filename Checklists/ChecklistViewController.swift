@@ -97,6 +97,8 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
                 configureText(for: cell, with: item)
             }
         }
+        navigationController?.popViewController(animated:true)
+    }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         items.remove(at: indexPath.row)
