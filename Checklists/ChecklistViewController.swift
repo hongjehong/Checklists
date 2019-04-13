@@ -10,7 +10,6 @@ import UIKit
 
 class ChecklistViewController: UITableViewController {
     
-    /*
     var items: [ChecklistItem]
     required init?(coder aDecoder: NSCoder) {
         items = [ChecklistItem]()
@@ -42,13 +41,12 @@ class ChecklistViewController: UITableViewController {
         
         super.init(coder: aDecoder)
     }
- */
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-    /*
+    
     //
     /* For Checkmark */
     func configureCheckmark(for cell: UITableViewCell,
@@ -64,6 +62,18 @@ class ChecklistViewController: UITableViewController {
                        with item: ChecklistItem) {
         let label = cell.viewWithTag(1000) as! UILabel
         label.text = item.text
+    }
+    @IBAction func addItem(){
+        let newRowIndex = items.count
+        
+        let item = ChecklistItem()
+        item.text = "I am a new row"
+        item.checked = false
+        items.append(item)
+        
+        let indexPath = IndexPath(row: newRowIndex, section: 0)
+        let indexPaths = [indexPath]
+        tableView.insertRows(at: indexPaths, with: .automatic)
     }
     override func tableView(_ tableView: UITableView,
                             cellForRowAt indexPath: IndexPath) -> UITableViewCell{
@@ -85,10 +95,10 @@ class ChecklistViewController: UITableViewController {
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
+
     //
- */
     
-    
+    /*
      //
     override func tableView(_ tableView: UITableView,
                             numberOfRowsInSection section: Int) -> Int {
@@ -132,6 +142,7 @@ class ChecklistViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
      //
+    */
 
 }
 
