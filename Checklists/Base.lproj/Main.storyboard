@@ -86,10 +86,10 @@
             </objects>
             <point key="canvasLocation" x="1705.7971014492755" y="110.49107142857143"/>
         </scene>
-        <!--Add Item View Controller-->
+        <!--Item Detail View Controller-->
         <scene sceneID="Bck-1s-0mb">
             <objects>
-                <tableViewController id="vNg-W3-bWv" customClass="AddItemViewController" customModule="Checklists" sceneMemberID="viewController">
+                <tableViewController id="vNg-W3-bWv" customClass="itemDetailViewController" customModule="Checklists" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="ARk-O0-lYQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
