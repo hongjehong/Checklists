@@ -11,6 +11,7 @@ import UIKit
 class ChecklistViewController: UITableViewController, itemDetailViewControllerDelegate {
     
     var items = [ChecklistItem]()
+    var checklist: Checklist!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +44,7 @@ class ChecklistViewController: UITableViewController, itemDetailViewControllerDe
         //print(" Data file is \(dataFilePath())")
         */
         
+        title = checklist.name
         /* Loading current file */
         loadChecklistItems()
     }

@@ -38,12 +38,12 @@ class AllListsViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return lists.count
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 3
+        return lists.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -59,7 +59,16 @@ class AllListsViewController: UITableViewController {
     
     /* didSelectRowAt */
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "ShowChecklist", sender: nil)
+        let checklist = lists[indexPath.row]
+        performSegue(withIdentifier: "ShowChecklist", sender: checklist)
+    }
+    
+    // MARK:- Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowChecklist" {
+            let controller = segue.destination as! ChecklistViewController
+            controller.checklist = sender as? Checklist
+        }
     }
 
     /*
