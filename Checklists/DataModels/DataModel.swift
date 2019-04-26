@@ -28,6 +28,15 @@ class DataModel{
         handleFirstTime()
     }
     
+    // itemID
+    class func nextChecklistItemID() -> Int {
+        let userDefaults = UserDefaults.standard
+        let itemID = userDefaults.integer(forKey: "ChecklistItemID")
+        userDefaults.set(itemID + 1, forKey: "ChecklistItemID")
+        userDefaults.synchronize()
+        return itemID
+    }
+    
     // register initial UserDefaults value
     func registerDefaults(){
         let dictionary = ["ChecklistIndex":-1,"FirstTime": true ] as [String : Any]
