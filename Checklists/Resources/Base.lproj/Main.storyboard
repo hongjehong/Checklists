@@ -238,7 +238,7 @@
                                 <action selector="cancel" destination="Wyt-m6-nYG" id="rp9-uN-sQc"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="pG5-6h-kCs">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="pG5-6h-kCs">
                             <connections>
                                 <action selector="done" destination="Wyt-m6-nYG" id="41p-1i-6md"/>
                             </connections>

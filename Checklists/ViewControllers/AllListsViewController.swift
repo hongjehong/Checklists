@@ -17,30 +17,13 @@ class AllListsViewController: UITableViewController,ListDetailViewControllerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
-        
-        /*
-        /* Dummy data */
-        // Add placeholder data
-        var list = Checklist(name: "Birthdays")
-        lists.append(list)
-        
-        list = Checklist(name: "Groceries")
-        lists.append(list)
-        
-        list = Checklist(name: "Cool Apps")
-        lists.append(list)
-        
-        list = Checklist(name: "To Do")
-        lists.append(list)
-        
-        for list in lists{
-            let item = ChecklistItem()
-            item.text = "Item for \(list.name)"
-            list.items.append(item)
-        }
- */
+    }
+    // View is going to appear
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
     
     // View has just Appeared
@@ -70,13 +53,20 @@ class AllListsViewController: UITableViewController,ListDetailViewControllerDele
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        // Get Cell
+        let cell: UITableViewCell!
+        if let c = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) {
+            cell = c
+        } else {
+            cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
+        }
         
         // Configure the cell...
         //cell.textLabel!.text="List\(indexPath.row)"
         let checklist = dataModel.lists[indexPath.row]
         cell.textLabel!.text = checklist.name
         cell.accessoryType = .detailDisclosureButton
+        cell.detailTextLabel!.text = "\(checklist.countUncheckedItems()) Remaining"
         return cell
     }
     
@@ -118,23 +108,29 @@ class AllListsViewController: UITableViewController,ListDetailViewControllerDele
     }
     
     func listDetailViewController(_ controller: ListDetailViewController, didFinishAdding checklist: Checklist) {
-        let newRowIndex = dataModel.lists.count
+        //let newRowIndex = dataModel.lists.count
         dataModel.lists.append(checklist)
+        dataModel.sortChecklists()
+        tableView.reloadData()
         
-        let indexPath = IndexPath(row: newRowIndex, section: 0)
-        let indexPaths = [indexPath]
-        tableView.insertRows(at: indexPaths, with: .automatic)
+        //let indexPath = IndexPath(row: newRowIndex, section: 0)
+        //let indexPaths = [indexPath]
+        //tableView.insertRows(at: indexPaths, with: .automatic)
         
         navigationController?.popViewController(animated: true)
     }
     
     func listDetailViewController(_ controller: ListDetailViewController, didFinishEditing checklist: Checklist) {
+        /*
         if let index = dataModel.lists.firstIndex(of: checklist) {
             let indexPath = IndexPath(row: index, section: 0)
             if let cell = tableView.cellForRow(at: indexPath) {
                 cell.textLabel!.text = checklist.name
             }
         }
+ */
+        dataModel.sortChecklists()
+        tableView.reloadData()
         navigationController?.popViewController(animated: true)
     }
     
