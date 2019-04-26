@@ -205,6 +205,8 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="datePicker" destination="H4Y-P6-Lsg" id="acU-0v-wUa"/>
+                        <outlet property="datePickerCell" destination="5Cx-oc-zAc" id="MBz-Uq-VFa"/>
                         <outlet property="doneBarButton" destination="B5x-aH-0c7" id="Sln-LC-kDn"/>
                         <outlet property="dueDateLabel" destination="Pw4-ai-BJJ" id="WeP-eg-bwg"/>
                         <outlet property="shouldRemindSwitch" destination="D4M-ut-lxX" id="aeB-Wr-nGs"/>
@@ -212,6 +214,26 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rrw-EQ-tWl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="5Cx-oc-zAc">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="217"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Cx-oc-zAc" id="fNC-aq-FM3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="216.5"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="H4Y-P6-Lsg">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="217"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <date key="date" timeIntervalSinceReferenceDate="577961877.45051205">
+                                    <!--2019-04-26 08:57:57 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="dateChanged:" destination="vNg-W3-bWv" eventType="valueChanged" id="TnR-RV-sC6"/>
+                                </connections>
+                            </datePicker>
+                        </subviews>
+                    </tableViewCellContentView>
+                </tableViewCell>
             </objects>
             <point key="canvasLocation" x="2475" y="-541"/>
         </scene>
