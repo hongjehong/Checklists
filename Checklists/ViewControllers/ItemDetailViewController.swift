@@ -87,6 +87,16 @@ class itemDetailViewController: UITableViewController, UITextFieldDelegate {
         tableView.insertRows(at: [indexPathDatePicker], with: .fade)
         // Show set-up time
         datePicker.setDate(dueDate, animated: false)
+        dueDateLabel.textColor = dueDateLabel.tintColor
+    }
+    
+    func hideDatePicker() {
+        if datePickerVisible {
+            datePickerVisible = false
+            let indexPathDatePicker = IndexPath(row: 2, section: 1)
+            tableView.deleteRows(at: [indexPathDatePicker], with: .fade)
+            dueDateLabel.textColor = UIColor.black
+        }
     }
     
     // MARK:- Table View Delegates
@@ -154,9 +164,9 @@ class itemDetailViewController: UITableViewController, UITextFieldDelegate {
         if indexPath.section == 1 && indexPath.row == 1 {
             if !datePickerVisible {
                 showDatePicker()
-            } //else {
-                //hideDatePicker()
-            //}
+            } else {
+                hideDatePicker()
+            }
         }
     }
     
@@ -168,59 +178,9 @@ class itemDetailViewController: UITableViewController, UITextFieldDelegate {
         return super.tableView(tableView, indentationLevelForRowAt: newIndexPath)
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    // MARK:- Text Field Delegates
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        hideDatePicker()
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }
