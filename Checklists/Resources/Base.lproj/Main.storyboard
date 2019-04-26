@@ -262,6 +262,9 @@
                                                 <constraint firstItem="dYv-RS-Qbt" firstAttribute="leading" secondItem="hky-uu-Mbg" secondAttribute="leading" constant="16" id="rFy-UG-z1b"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="KHQ-Ij-lcS" kind="show" identifier="PickIcon" id="Hbj-7g-p1n"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -277,7 +280,7 @@
                                 <action selector="cancel" destination="Wyt-m6-nYG" id="rp9-uN-sQc"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="pG5-6h-kCs">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="pG5-6h-kCs">
                             <connections>
                                 <action selector="done" destination="Wyt-m6-nYG" id="41p-1i-6md"/>
                             </connections>
@@ -292,7 +295,7 @@
             </objects>
             <point key="canvasLocation" x="791.304347826087" y="183.48214285714286"/>
         </scene>
-        <!--Icon Picker View Controller-->
+        <!--Choose Icon-->
         <scene sceneID="cSu-Ma-KfZ">
             <objects>
                 <tableViewController id="KHQ-Ij-lcS" customClass="IconPickerViewController" customModule="Checklists" customModuleProvider="target" sceneMemberID="viewController">
@@ -324,6 +327,7 @@
                             <outlet property="delegate" destination="KHQ-Ij-lcS" id="ciI-bm-fcc"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Choose Icon" id="p9o-cN-MHj"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tdm-jY-Sjd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
