@@ -22,42 +22,6 @@ class ChecklistViewController: UITableViewController, itemDetailViewControllerDe
         //loadChecklistItems()
     }
     
-    /*
-    /* File I/O */
-    func documentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0]
-    }
-    
-    func dataFilePath() -> URL {
-        return documentsDirectory().appendingPathComponent("Checklists.plist")
-    }
-    
-    /* Saving the file */
-    func saveChecklistItems() {
-        let encoder = PropertyListEncoder()
-        do {
-            let data = try encoder.encode(checklist.items)
-            try data.write(to: dataFilePath(), options: Data.WritingOptions.atomic)
-        } catch {
-            print("Error encoding item array: \(error.localizedDescription)")
-        }
-    }
-    /* Loading the file */
-    func loadChecklistItems() {
-        let path = dataFilePath()
-        if let data = try? Data(contentsOf: path) {
-            let decoder = PropertyListDecoder()
-            do {
-                checklist.items = try decoder.decode([ChecklistItem].self, from: data)
-            } catch {
-                print("Error decoding item array: \(error.localizedDescription)")
-            }
-        }
-    }
- */
-    
-    //
     /* For Checkmark */
     func configureCheckmark(for cell: UITableViewCell,
                             with item: ChecklistItem) {
@@ -80,21 +44,6 @@ class ChecklistViewController: UITableViewController, itemDetailViewControllerDe
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return checklist.items.count
     }
-    
-    /*
-    @IBAction func addItem(){
-        let newRowIndex = items.count
-        
-        let item = ChecklistItem()
-        item.text = "I am a new row"
-        item.checked = false
-        items.append(item)
-        
-        let indexPath = IndexPath(row: newRowIndex, section: 0)
-        let indexPaths = [indexPath]
-        tableView.insertRows(at: indexPaths, with: .automatic)
-    }
- */
     
     /* For Adding */
     func itemDetailViewController(_ controller: itemDetailViewController, didFinishAdding item: ChecklistItem) {
