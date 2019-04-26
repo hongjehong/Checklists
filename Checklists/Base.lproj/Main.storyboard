@@ -205,14 +205,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name of the List" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NBa-d5-L4q">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name of the List" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NBa-d5-L4q">
                                                     <rect key="frame" x="10" y="5" width="394" height="33.5"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                     <connections>
                                                         <action selector="done" destination="Wyt-m6-nYG" eventType="editingDidEndOnExit" id="NK1-DO-2y5"/>
-                                                        <outlet property="delegate" destination="Wyt-m6-nYG" id="bYh-4P-x3m"/>
+                                                        <outlet property="delegate" destination="Wyt-m6-nYG" id="oBT-24-ckX"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -246,7 +246,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="doneBarButton" destination="pG5-6h-kCs" id="eV7-Nq-rrn"/>
-                        <outlet property="textField" destination="NBa-d5-L4q" id="337-AZ-Uzf"/>
+                        <outlet property="textField" destination="NBa-d5-L4q" id="H2l-Zb-FtG"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k77-DD-5fU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -273,7 +273,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="yot-Tr-SEs"/>
+        <segue reference="l1f-rF-QMn"/>
         <segue reference="5vH-q2-fsk"/>
     </inferredMetricsTieBreakers>
 </document>
